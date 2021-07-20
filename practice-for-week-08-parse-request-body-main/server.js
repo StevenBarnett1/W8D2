@@ -1,5 +1,6 @@
 const http = require("http")
 
+
 let server = http.createServer((req,res)=> {
     let body = ""
     let obj = {}
@@ -18,9 +19,20 @@ let server = http.createServer((req,res)=> {
         obj[kv[0]] = kv[1]
     }
     console.log(obj)
+    if(req.method === "GET" && req.url === "/users"){
+        res.setHeader("Content-Type","text/html")
+        res.statusCode = 200;
+        res.end("Hello World")
+    }
+    usersController.getUsers(){
+    }
+    if(req.method === "GET" && req.url === "/about"){
+        res.setHeader("Content-Type","text/html")
+        res.statusCode = 200;
+        res.end("About Page")
+    }
 })
 })
-
 
 const port = 3000;
 
